@@ -1,0 +1,35 @@
+<section data-ng-controller="BimsController" data-ng-init="findOne()">
+	<div class="page-header">
+		<h1>Edit Bim</h1>
+	</div>
+	<div class="col-md-12">
+		<form name="bimForm" class="form-horizontal" data-ng-submit="update(bimForm.$valid)" novalidate>
+			<fieldset>
+				<div class="form-group" ng-class="{ 'has-error' : submitted && bimForm.mass.$invalid}">
+					<label class="control-label" for="mass">Mass</label>
+					<div class="controls">
+						<input name="mass" type="text" data-ng-model="bim.mass" id="title" class="form-control" placeholder="Mass" required>
+					</div>
+					<div ng-show="submitted && bimForm.mass.$invalid" class="help-block">
+						<p ng-show="bimForm.mass.$error.required" class="text-danger">Mass is required</p>
+					</div>
+				</div>
+				<div class="form-group" ng-class="{ 'has-error' : submitted && bimForm.height.$invalid}">
+					<label class="control-label" for="height">Height</label>
+					<div class="controls">
+						 <input name="height" type="text" data-ng-model="bim.height" id="title" class="form-control" placeholder="Height" required>
+					</div>
+					<div ng-show="submitted && bimForm.height.$invalid" class="help-block">
+						<p ng-show="bimForm.height.$error.required" class="text-danger">Height is required</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<input type="submit" value="Update" class="btn btn-default">
+				</div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</section>
